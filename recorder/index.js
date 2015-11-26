@@ -1,32 +1,7 @@
-##Audio Player
+let Encoder = require('./encoder');
+let Recorder = require('./recorder');
 
-```js
-let sources = [/* audios... */];
-
-let singlePlayer1 = player({el: this.el});
-
-let seriesPlayer = player({
-	el: this.el,
-	sources: sources,
-	config: {
-		preload: 'none'
-	}
-});
-
-let parallelPlayer = player({
-	el: this.el,
-	sources: sources,
-	isParallel: true,
-	config: {
-		preload: 'none'
-	}
-});
-```
-
-
-##Audio Encoder
-
-```js
+// encoder
 let encoder = new Encoder({
 	numberOfChannels: 2,
 	bitDepth: 8,
@@ -38,12 +13,8 @@ encoder.encode(audioBuffer, function(data) {
 	encoder = null;
 	console.log(data.blob);
 });
-```
 
-
-##Audio Recorder
-
-```js
+// recorder
 let recorder = new Recorder({
 	stream: stream,
 	monitorGain: 0,
@@ -60,4 +31,3 @@ setTimeout(()=>{
 		console.log(data);
 	});
 }, 5000);
-```
