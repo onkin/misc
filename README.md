@@ -1,6 +1,7 @@
 ##Audio Player
 
 ```js
+let player = require('./player');
 let sources = [/* audios... */];
 
 let singlePlayer1 = player({el: this.el});
@@ -27,12 +28,15 @@ let parallelPlayer = player({
 ##Audio Encoder
 
 ```js
+let Encoder = require('./encoder');
+
 let encoder = new Encoder({
 	numberOfChannels: 2,
 	bitDepth: 8,
 	format: 'mp3',
 	sampleRate: 48000
 });
+
 encoder.encode(audioBuffer, function(data) {
 	encoder.destroy();
 	encoder = null;
@@ -44,6 +48,8 @@ encoder.encode(audioBuffer, function(data) {
 ##Audio Recorder
 
 ```js
+let Recorder = require('./recorder');
+
 let recorder = new Recorder({
 	stream: stream,
 	monitorGain: 0,
